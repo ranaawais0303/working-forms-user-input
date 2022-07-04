@@ -5,8 +5,15 @@ const SimpleInput = (props) => {
   const [enteredNameIsTouched, setEnteredNameIsTouched] = useState(false);
 
   //constant
-  const enteredNameIsValid = enteredName !== "";
+  const enteredNameIsValid = enteredName.trim() !== "";
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameIsTouched;
+
+  let formIsValid = false;
+
+  if (enteredNameIsValid) {
+    formIsValid = true;
+  }
+
   //blur handler
   const nameInputBlurHandler = (e) => {
     setEnteredNameIsTouched(true);
@@ -50,7 +57,7 @@ const SimpleInput = (props) => {
         )}
       </div>
       <div className="form-actions">
-        <button>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
