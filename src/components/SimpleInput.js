@@ -22,10 +22,6 @@ const SimpleInput = (props) => {
     reset: resetEmailInput,
   } = useInput((value) => value.includes("@"));
 
-  //constant
-  // const nameInputIsInvalid = !enteredNameIsValid && enteredNameIsTouched;
-  // const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailIsTouched;
-
   let formIsValid = false;
 
   if (enteredNameIsValid && enteredEmailIsValid) {
